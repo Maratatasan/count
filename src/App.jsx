@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import moment from "moment";
 // this clock is in src folder Clock.jsx
 import Clock from "./Clock";
 import { Form, FormControl, Button } from "react-bootstrap";
@@ -20,7 +21,9 @@ class App extends Component {
     // WHY?
     // otherwise it will not render
     // pass in entire object referring to the one you would like to update
-    this.setState({ deadline: this.state.newDeadline });
+
+    var a = moment(this.state.newDeadline).format("MMMM DD, YYYY");
+    this.setState({ deadline: a });
   }
 
   render() {
@@ -33,6 +36,7 @@ class App extends Component {
         </div>
         <Form inline className="form-div">
           <FormControl
+            type="date"
             className="Deadline-input"
             placeholder="new date"
             onChange={(event) =>

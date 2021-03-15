@@ -32,7 +32,7 @@ class Clock extends Component {
     // new Date() - in default grabs current time and date
     //javascript has pre built date methods
     const time = Date.parse(deadline) - Date.parse(new Date());
-    console.log(time);
+    // console.log(time);
     const seconds = Math.floor((time / 1000) % 60);
     const minutes = Math.floor((time / 1000 / 60) % 60);
     const hours = Math.floor((time / (1000 * 60 * 60)) % 24);
