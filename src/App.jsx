@@ -21,7 +21,7 @@ class App extends Component {
     // WHY?
     // otherwise it will not render
     // pass in entire object referring to the one you would like to update
-
+    // moment is a date formatting library
     var a = moment(this.state.newDeadline).format("MMMM DD, YYYY");
     this.setState({ deadline: a });
   }
@@ -42,6 +42,9 @@ class App extends Component {
             onChange={(event) =>
               this.setState({ newDeadline: event.target.value })
             }
+            onKeyPress={(event) => {
+              if (event.key === "Enter") this.changeDeadline();
+            }}
           />
           {/*the function has to be called through an anonymous function "() =>" or the app will crash*/}
           <Button onClick={() => this.changeDeadline()}>Submit</Button>
